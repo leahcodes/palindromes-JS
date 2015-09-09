@@ -1,8 +1,8 @@
 var palindrome = function(word) {
-  var wordArray = word.split("");
-  if (word.length === 1) {
-    return false;
+  var wordReverse = word.split("").slice().reverse().join("");
+  if (word == wordReverse && word.length > 1) {
+    return true;
   } else {
-    return wordArray;
+    return false;
   }
 };
