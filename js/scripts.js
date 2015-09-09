@@ -1,8 +1,24 @@
-var palindrome = function(word) {
-  var wordReverse = word.split("").slice().reverse().join("");
-  if (word == wordReverse && word.length > 1) {
-    return true;
+var palindrome = function(input) {
+  var inputNew = input.replace(/\W+/g, '').replace(/\s+/g, '');
+  var inputReverse = inputNew.split("").slice().reverse().join("").toLowerCase();
+  if ((inputNew.toLowerCase()) == inputReverse && inputNew.length > 1) {
+    return "Yes!";
   } else {
-    return false;
+    return "Nope!";
   }
 };
+
+
+$(document).ready(function()  {
+  $("form#palindrome").submit(function(event) {
+    var word = ($("input#word").val());
+    var result = palindrome(word);
+
+    $(".palindromized").text(result);
+
+    $("#result").show();
+    event.preventDefault();
+
+  });
+
+});
